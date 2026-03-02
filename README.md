@@ -20,6 +20,9 @@
   <a href="https://github.com/StephenDev0/StikDebug/stargazers">
     <img src="https://img.shields.io/github/stars/0-Blu/StikJIT?label=Stars&color=FEE75C&style=for-the-badge&labelColor=23272A" />
   </a>
+  <a href="https://github.com/realagiorganization/StikDebug/actions/workflows/bdd.yml">
+    <img src="https://github.com/realagiorganization/StikDebug/actions/workflows/bdd.yml/badge.svg" />
+  </a>
   <br />
 </h6>
 
@@ -44,3 +47,9 @@
 
 ## License  
 StikDebug is licensed under **AGPL-3.0**. See [`LICENSE`](LICENSE) for details.  
+
+## Demo
+
+<div align="center">
+  <img src="assets/demo.gif" alt="BDD and CLI demo gif" width="640" />
+</div>
