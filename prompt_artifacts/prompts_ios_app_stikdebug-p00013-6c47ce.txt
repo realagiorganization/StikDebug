@@ -1,7 +1,7 @@
 Prompt ID: prompts_ios_app_stikdebug-p00013-6c47ce
-Timestamp: 2026-03-02T04:26:45.914196+00:00
+Timestamp: 2026-03-02T07:50:43.811836+00:00
 Source: discord
-Queue: 93fb821355a7471e8ddc77013798ebfc::prompt_queue::discord_1353735964635435100_1353735964635435100_1463849756936638630_realagicorp_iosapp_prompts_ios_app_stikdebug_1463849756936638630_json
+Queue: guild-1353735964635435100-run-22565692499::prompt_queue::discord_1353735964635435100_1353735964635435100_1463849756936638630_realagicorp_iosapp_prompts_ios_app_stikdebug_1463849756936638630_json
 Run: 1/1
 Content:
 Discord channel: prompts_ios_app-stikdebug
