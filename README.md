@@ -1,46 +1,70 @@
 <div align="center">
    <img width="217" height="217" src="/assets/StikJIT.png" alt="Logo">
 </div>
-   
 
 <div align="center">
   <h1><b>StikDebug</b></h1>
-  <p><i> An on-device debugger/JIT enabler for iOS versions 17.4+ powered by <a href="https://github.com/jkcoxson/idevice">idevice.</a> </i></p>
+  <p><i>An on-device debugger and JIT enabler for iOS 17.4+ powered by <a href="https://github.com/jkcoxson/idevice">idevice</a>.</i></p>
 </div>
 
 <h6 align="center">
-
   <a href="https://discord.gg/ZnNcrRT3M8">
     <img src="https://img.shields.io/badge/Discord-join%20us-7289DA?logo=discord&logoColor=white&style=for-the-badge&labelColor=23272A" />
   </a>
-  <a href="https://github.com/StephenDev0/StikDebug/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/0-Blu/StikJIT?label=License&color=5865F2&style=for-the-badge&labelColor=23272A" />
+  <a href="LICENSE">
+    <img src="https://img.shields.io/github/license/realagiorganization/StikDebug?label=License&color=5865F2&style=for-the-badge&labelColor=23272A" />
   </a>
+  <a href="https://github.com/realagiorganization/StikDebug/stargazers">
+    <img src="https://img.shields.io/github/stars/realagiorganization/StikDebug?label=Stars&color=FEE75C&style=for-the-badge&labelColor=23272A" />
   </a>
-  <a href="https://github.com/StephenDev0/StikDebug/stargazers">
-    <img src="https://img.shields.io/github/stars/0-Blu/StikJIT?label=Stars&color=FEE75C&style=for-the-badge&labelColor=23272A" />
+  <a href="https://github.com/realagiorganization/StikDebug/actions/workflows/bdd.yml">
+    <img src="https://github.com/realagiorganization/StikDebug/actions/workflows/bdd.yml/badge.svg" alt="BDD Suite" />
+  </a>
+  <a href="https://github.com/realagiorganization/StikDebug/actions/workflows/build_ipa.yml">
+    <img src="https://github.com/realagiorganization/StikDebug/actions/workflows/build_ipa.yml/badge.svg" alt="Build Unsigned Debug IPA" />
+  </a>
+  <a href="https://github.com/realagiorganization/StikDebug/actions/workflows/updatesource.yml">
+    <img src="https://github.com/realagiorganization/StikDebug/actions/workflows/updatesource.yml/badge.svg" alt="Update StikJIT Source" />
   </a>
   <br />
 </h6>
 
-# Download
-<div align="center" style="display: flex; justify-content: center; align-items: center; gap: 16px; flex-wrap: wrap;">
-   <a href="https://stikstore.app/altdirect/?url=https://stikdebug.xyz/index.json" target="_blank">
-  <img src="https://github.com/stikstore/altdirect/blob/main/assets/png/AltSource_Blue.png?raw=true" alt="Add AltSource" width="200">
-   </a>
-   <a href="https://github.com/StephenDev0/StikDebug/releases/download/2.3.7/StikDebug-2.3.7.ipa" target="_blank">
-  <img src="https://github.com/stikstore/altdirect/blob/main/assets/png/Download_Blue.png?raw=true" alt="Download .ipa" width="200">
-   </a>
-</div>
+## What It Does
+
+- Imports a pairing file and prepares the device-side debugging flow.
+- Connects to trusted iOS devices and tolerates reconnect events.
+- Enables JIT for supported apps with auditable console state.
+- Streams and filters console logs for active bundles.
+- Runs Mini Tools and surfaces success or failure history.
+
+## Download
+
+- Follow the latest workflow artifacts from [`Build Unsigned Debug IPA`](https://github.com/realagiorganization/StikDebug/actions/workflows/build_ipa.yml) for unsigned debug builds.
+- Check [`Releases`](https://github.com/realagiorganization/StikDebug/releases) if this fork publishes packaged binaries.
 
 ## Code Help
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/stephendev0/stikdebug)
 
-## Features  
-- On-device debugging/Just-In-Time (JIT) compilation for supported apps via [`idevice`](https://github.com/jkcoxson/idevice).  
-- No special VPN/Network Extension entitlements required.  
-- Native UI for managing debugging/JIT-enabling.  
-- No data collection—ensuring full privacy. 
+## Developer Docs
 
-## License  
-StikDebug is licensed under **AGPL-3.0**. See [`LICENSE`](LICENSE) for details.  
+- [`docs/USAGE.md`](docs/USAGE.md) for local setup, BDD execution, and build commands.
+- [`docs/ENVS.md`](docs/ENVS.md) for CI and local environment variables.
+- [`docs/DEVPLAN.md`](docs/DEVPLAN.md) for the tracked development roadmap.
+- [`docs/ASSUMPTIONS.md`](docs/ASSUMPTIONS.md) for the assumptions used in the current automation setup.
+- [`docs/AGENTS.md`](docs/AGENTS.md) for the working prompts used during this task.
+
+## Quality Gates
+
+- Principal user flows are described in `bdd/features`.
+- GitHub Actions runs the Behave contract suite and uploads a JUnit report artifact.
+- GitHub Actions also records the terminal demo from `assets/demo.tape` and publishes the GIF artifact.
+
+## License
+
+StikDebug is licensed under **AGPL-3.0**. See [`LICENSE`](LICENSE) for details.
+
+## Demo
+
+<div align="center">
+  <img src="assets/demo.gif" alt="BDD contract suite demo" width="640" />
+</div>
