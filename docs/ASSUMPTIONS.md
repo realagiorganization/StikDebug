@@ -1,6 +1,8 @@
 # Assumptions
 
-- Behave BDD suites are acceptable stand-ins for higher-fidelity UI automation and can run in Ubuntu CI.
-- VHS terminal recording is sufficient to illustrate behavior; a placeholder GIF committed will be regenerated in CI.
-- Device connection/JIT flows are represented via lightweight Python models for contract-level tests, not real device I/O.
-- macOS build pipeline remains as existing `build_ipa.yml`; no change required.
+- The repository should keep its authoritative operational documentation in `docs/`, with `README.md` remaining the only required root-level narrative document.
+- Behave-based contract tests are an acceptable first automation layer for principal user flows even though they model behavior rather than exercising a physical iOS device.
+- VHS terminal capture is sufficient for the requested README demo because the behavior being recorded for this task is the BDD/test flow, not a simulator-driven UI recording.
+- The current GitHub Actions footprint remains valid: Ubuntu for Behave/VHS work and macOS for Xcode/IPA builds.
+- The existing IPA build and source-update workflows remain part of the repository and therefore should be represented in README badges.
+- No new hosted backend was required for this run; if one is added later, Azure is the approved compute host for it.

@@ -7,6 +7,6 @@ Set Theme "Dracula"
 Type "echo 'StikDebug BDD demo'"
 Enter
 Sleep 1s
-Type "behave bdd/features --summary"
+Type "python3 -m behave --format progress2 --summary bdd/features"
 Enter
 Sleep 2s

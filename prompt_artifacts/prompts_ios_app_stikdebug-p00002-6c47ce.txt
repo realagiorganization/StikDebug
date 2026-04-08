@@ -1,0 +1,35 @@
+Prompt ID: prompts_ios_app_stikdebug-p00002-6c47ce
+Timestamp: 2026-04-08T14:15:29.237800+00:00
+Source: discord
+Queue: 2be3415619f14c8ba7179afaefc7102a::prompt_queue::discord_1353735964635435100_1353735964635435100_1463849756936638630_realagicorp_iosapp_prompts_ios_app_stikdebug_1463849756936638630_json
+Run: 1/1
+Content:
+Discord channel: prompts_ios_app-stikdebug
+Channel ID: 1463849756936638630
+Queue label: prompts_ios_app_stikdebug
+Messages aggregated: 6
+Available repository: realagiorganization/StikDebug -> /tmp/repositories/realagiorganization_StikDebug
+Attachments saved for execution (3): attachments/image-2eb70.png, attachments/image-528a0.png, attachments/image-9091d.png | mounted at attachments_prompts_ios_app_stikdebug
+Attachment locations:
+- image-2eb70.png (123209 bytes) -> attachments_prompts_ios_app_stikdebug/image-2eb70.png
+- image-528a0.png (69278 bytes) -> attachments_prompts_ios_app_stikdebug/image-528a0.png
+- image-9091d.png (125244 bytes) -> attachments_prompts_ios_app_stikdebug/image-9091d.png
+
+Discord channel: prompts_ios_app-stikdebug | ID: 1463849756936638630 | Reaction filter: :white_check_mark:
+
+Messages with required reaction:
+[1] (2026-01-22T10:57:00.597+00:00 | realagiadmin_29264 | id=1463849931126214800) work in https://github.com/realagiorganization/StikDebug
+[2] (2026-01-22T11:29:29.653+00:00 | realagiadmin_29264 | id=1463858106059591814) test/screenshot github pages website in the usual separate pipeline branch
+Attachments: image.png: /out/1353735964635435100/_media/image-9091d.png ; image.png: /out/1353735964635435100/_media/image-2eb70.png ; image.png: /out/1353735964635435100/_media/image-528a0.png
+[3] (2026-01-22T11:35:05.234+00:00 | mermaid10121 | id=1463859513588322375) [forwarded] Add badges for each GitHub action to README and gif of ui testing
+[4] (2026-01-25T20:22:23.298+00:00 | realagiadmin_29264 | id=1465079376843509998) Create DEVPLAN.md outlining steps for developing this project, mention there all external dependencies that leverage parts of functionality needed
+
+Create BDD test suite describing principal use cases
+
+Create GitHub actions launching BDD suite and add its badge to README. If behavior includes either console or UI / Web user interaction, record it with vhs action and post gif into README
+[5] (2026-01-27T21:26:51.986+00:00 | drybox | id=1465820379028131881) always_on_hint
+[6] (2026-01-28T12:11:32.332+00:00 | realagiadmin_29264 | id=1466043014135939156) Create DEVPLAN.md outlining steps for developing this project, mention there all external dependencies that leverage parts of functionality needed
+
+Create BDD test suite describing principal use cases
+
+Create GitHub actions launching BDD suite and add its badge to README. If behavior includes either console or UI / Web user interaction, record it with vhs action and post gif into README

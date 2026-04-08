@@ -18,6 +18,9 @@ class StikDebugApp:
     logs: List[str] = field(default_factory=list)
     mini_tool_catalog: Dict[str, dict] = field(default_factory=dict)
     mini_tool_history: List[dict] = field(default_factory=list)
+    pairing_file_present: bool = False
+    pairing_file_valid: bool = False
+    pairing_status_message: Optional[str] = None
 
     def connect(self, device: Device, assume_trusted: bool = True):
         device.connected = True
@@ -73,6 +76,19 @@ class StikDebugApp:
         self.logs.append(f"mini-tool:{name}:{result['status']}")
         return result
 
+    def import_pairing_file(self, *, valid: bool):
+        self.pairing_file_present = True
+        self.pairing_file_valid = valid
+        if valid:
+            self.pairing_status_message = "Pairing file successfully imported"
+        else:
+            self.pairing_status_message = "Pairing file validation failed"
+        return valid
+
+    @property
+    def can_start_connection(self) -> bool:
+        return self.pairing_file_present and self.pairing_file_valid
+
 
 @given('a tethered device named "{name}" running iOS {os_version}')
 def step_tethered_device(context, name, os_version):
@@ -101,6 +117,15 @@ def step_previously_trusted(context):
 def step_no_device(context):
     context.app = StikDebugApp()
     context.device = None
+
+
+@given("no pairing file has been imported")
+def step_no_pairing_file(context):
+    if not hasattr(context, "app"):
+        context.app = StikDebugApp()
+    context.app.pairing_file_present = False
+    context.app.pairing_file_valid = False
+    context.app.pairing_status_message = None
 
 
 @given('the mini tool catalog contains "{tool_name}"')
@@ -148,6 +173,16 @@ def step_start_logging(context, bundle_id):
 @when('the device emits a log line "{message}" for "{bundle_id}"')
 def step_emit_log(context, message, bundle_id):
     context.app.emit_log(bundle_id, message)
+
+
+@when("I import a valid pairing file")
+def step_import_valid_pairing_file(context):
+    context.import_result = context.app.import_pairing_file(valid=True)
+
+
+@when("I import an invalid pairing file")
+def step_import_invalid_pairing_file(context):
+    context.import_result = context.app.import_pairing_file(valid=False)
 
 
 @then('the device status should be "{expected}"')
@@ -206,6 +241,28 @@ def step_history(context):
 def step_tool_failure(context):
     assert context.mini_tool_result["status"] == "failed"
     assert "error" in context.mini_tool_result
+
+
+@then("the app should report the pairing file import succeeded")
+def step_pairing_success(context):
+    assert context.import_result is True
+    assert context.app.pairing_status_message == "Pairing file successfully imported"
+
+
+@then("StikDebug should be ready to start device connection")
+def step_pairing_ready(context):
+    assert context.app.can_start_connection, "Expected connection flow to be unlocked"
+
+
+@then("the app should report the pairing file is invalid")
+def step_pairing_invalid(context):
+    assert context.import_result is False
+    assert context.app.pairing_status_message == "Pairing file validation failed"
+
+
+@then("StikDebug should block device connection until a valid pairing file is imported")
+def step_pairing_blocked(context):
+    assert not context.app.can_start_connection, "Connection flow should remain blocked"
 
 
 @then("the log stream should show the latest entry first")
